@@ -640,3 +640,23 @@ body.light-mode h3 {
 body.light-mode .footer {
     background: #e8eef5;
 }
+.developer-credit {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFD700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.developer-credit strong {
+    color: #FFC107;
+}
+
+.developer-credit:hover {
+    color: #FFF176;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    transition: 0.3s ease;
+}
