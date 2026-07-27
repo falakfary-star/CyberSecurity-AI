@@ -406,3 +406,28 @@ if (subtitle) {
 
     setTimeout(typeSubtitle, 2500);
 }
+/* ==========================
+   Password Popup
+========================== */
+
+const passwordCard = document.getElementById("passwordCard");
+const passwordPopup = document.getElementById("passwordPopup");
+const closePopup = document.querySelector(".close-popup");
+
+if (passwordCard && passwordPopup && closePopup) {
+
+    passwordCard.addEventListener("click", () => {
+        passwordPopup.style.display = "flex";
+    });
+
+    closePopup.addEventListener("click", () => {
+        passwordPopup.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === passwordPopup) {
+            passwordPopup.style.display = "none";
+        }
+    });
+
+}
