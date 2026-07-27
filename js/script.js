@@ -383,28 +383,7 @@ backToTop.addEventListener("click", () => {
     });
 });
 
-/* ==========================
-   Hero Typing Animation
-========================== */
 
-const typingHeading = document.getElementById("typingHeading");
-
-if (typingHeading) {
-    const text = "🛡️ CyberShield AI";
-    let index = 0;
-
-    typingHeading.textContent = "";
-
-    function typeHeading() {
-        if (index < text.length) {
-            typingHeading.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeHeading, 120);
-        }
-    }
-
-    typeHeading();
-}
 /* ==========================
    Hero Subtitle Typing
 ========================== */
