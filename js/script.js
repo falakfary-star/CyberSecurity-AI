@@ -552,3 +552,91 @@ togglePopupPassword.innerHTML="👁️";
 });
 
 }
+/* ==========================
+   Phishing Popup
+========================== */
+
+const phishingCard = document.getElementById("phishingCard");
+const phishingPopup = document.getElementById("phishingPopup");
+const closePhishing = document.querySelector(".close-phishing");
+
+if (phishingCard && phishingPopup && closePhishing) {
+
+    phishingCard.addEventListener("click", () => {
+        phishingPopup.style.display = "flex";
+    });
+
+    closePhishing.addEventListener("click", () => {
+        phishingPopup.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === phishingPopup) {
+            phishingPopup.style.display = "none";
+        }
+    });
+
+}
+/* ==========================
+   Popup Phishing Detector
+========================== */
+
+const popupURL = document.getElementById("popupURL");
+const scanPopupURL = document.getElementById("scanPopupURL");
+const popupURLResult = document.getElementById("popupURLResult");
+const riskScore = document.getElementById("riskScore");
+
+const loginCheck = document.getElementById("loginCheck");
+const verifyCheck = document.getElementById("verifyCheck");
+const secureCheck = document.getElementById("secureCheck");
+const freeCheck = document.getElementById("freeCheck");
+const atCheck = document.getElementById("atCheck");
+
+if (scanPopupURL) {
+
+    scanPopupURL.addEventListener("click", function () {
+
+        const url = popupURL.value.toLowerCase();
+
+        let score = 0;
+
+        const hasLogin = url.includes("login");
+        const hasVerify = url.includes("verify");
+        const hasSecure = url.includes("secure");
+        const hasFree = url.includes("free");
+        const hasAt = url.includes("@");
+
+        loginCheck.innerHTML = hasLogin ? "⚠️ Contains 'login'" : "✅ No login keyword";
+        verifyCheck.innerHTML = hasVerify ? "⚠️ Contains 'verify'" : "✅ No verify keyword";
+        secureCheck.innerHTML = hasSecure ? "⚠️ Contains 'secure'" : "✅ No secure keyword";
+        freeCheck.innerHTML = hasFree ? "⚠️ Contains 'free'" : "✅ No free keyword";
+        atCheck.innerHTML = hasAt ? "⚠️ Contains '@'" : "✅ No @ symbol";
+
+        if (hasLogin) score += 20;
+        if (hasVerify) score += 20;
+        if (hasSecure) score += 20;
+        if (hasFree) score += 20;
+        if (hasAt) score += 20;
+
+        if (score <= 20) {
+
+            popupURLResult.innerHTML = "🟢 Safe Website";
+            popupURLResult.style.color = "lime";
+
+        } else if (score <= 60) {
+
+            popupURLResult.innerHTML = "🟡 Suspicious Website";
+            popupURLResult.style.color = "orange";
+
+        } else {
+
+            popupURLResult.innerHTML = "🔴 Dangerous Website";
+            popupURLResult.style.color = "red";
+
+        }
+
+        riskScore.innerHTML = "Risk Score: " + score + "%";
+
+    });
+
+}

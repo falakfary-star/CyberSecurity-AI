@@ -103,7 +103,7 @@
 
         <div class="feature-cards">
 
-            <div class="card">
+            <div class="card" id="phishingCard"></div>
                 <h3>🛡️ Phishing Detection</h3>
                 <p>
                     Detect suspicious websites before visiting them.
@@ -285,6 +285,50 @@
             <li id="numberCheck">❌ Number</li>
 
             <li id="specialCheck">❌ Special character</li>
+
+        </ul>
+
+    </div>
+
+</div>
+<!-- Phishing Detector Popup -->
+
+<div id="phishingPopup" class="popup">
+
+    <div class="popup-content">
+
+        <span class="close-phishing">&times;</span>
+
+        <h2>🚨 Phishing Detector</h2>
+
+        <p>Paste a website URL below.</p>
+
+        <input
+            type="text"
+            id="popupURL"
+            placeholder="https://example.com">
+
+        <button id="scanPopupURL">
+
+            Scan URL
+
+        </button>
+
+        <div id="popupURLResult"></div>
+
+        <div id="riskScore"></div>
+
+        <ul class="password-checklist">
+
+            <li id="loginCheck">❌ Login keyword</li>
+
+            <li id="verifyCheck">❌ Verify keyword</li>
+
+            <li id="secureCheck">❌ Secure keyword</li>
+
+            <li id="freeCheck">❌ Free keyword</li>
+
+            <li id="atCheck">❌ Contains @ symbol</li>
 
         </ul>
 
