@@ -1073,3 +1073,53 @@ min-height:180px;
     margin-bottom:20px;
     line-height:1.7;
 }
+/* ==========================
+   Hero Status Panel
+========================== */
+
+.status-panel{
+
+margin-top:30px;
+
+background:rgba(16,24,43,.65);
+
+backdrop-filter:blur(15px);
+
+padding:20px;
+
+border-radius:18px;
+
+border:1px solid rgba(0,245,255,.35);
+
+box-shadow:0 0 20px rgba(0,245,255,.25);
+
+text-align:left;
+
+max-width:320px;
+
+}
+
+.status-panel h3{
+
+color:#00F5FF;
+
+margin-bottom:15px;
+
+}
+
+.status-panel p{
+
+margin:12px 0;
+
+font-size:17px;
+
+}
+
+#systemStatus,
+#protectionStatus{
+
+color:lime;
+
+font-weight:bold;
+
+}

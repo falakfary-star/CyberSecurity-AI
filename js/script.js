@@ -745,3 +745,23 @@ if (learnTopic) {
     });
 
 }
+/* ==========================
+   Live Clock
+========================== */
+
+const liveClock = document.getElementById("liveClock");
+
+function updateClock(){
+
+    if(!liveClock) return;
+
+    const now = new Date();
+
+    liveClock.innerHTML =
+        now.toLocaleTimeString();
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
