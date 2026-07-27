@@ -969,3 +969,17 @@ body.light-mode .footer {
     color:#050816;
     font-size:18px;
 }
+#securityScore{
+    margin-top:15px;
+    font-size:20px;
+    color:#00F5FF;
+    text-align:center;
+    font-weight:bold;
+}
+
+#crackTime{
+    margin-top:10px;
+    font-size:17px;
+    color:#FFD700;
+    text-align:center;
+}

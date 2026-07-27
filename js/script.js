@@ -438,6 +438,8 @@ if (passwordCard && passwordPopup && closePopup) {
 const popupPassword = document.getElementById("popupPassword");
 const analyzePopupPassword = document.getElementById("analyzePopupPassword");
 const popupResult = document.getElementById("popupResult");
+const securityScore = document.getElementById("securityScore");
+const crackTime = document.getElementById("crackTime");
 const strengthFill = document.getElementById("strengthFill");
 
 const lengthCheck = document.getElementById("lengthCheck");
@@ -483,6 +485,8 @@ if(hasSpecial) score++;
 if(score<=2){
 
 popupResult.innerHTML="🔴 Weak Password";
+securityScore.innerHTML="Security Score: 30 / 100";
+crackTime.innerHTML="Estimated Crack Time: A few minutes";
 
 strengthFill.style.width="35%";
 
@@ -492,6 +496,8 @@ strengthFill.style.background="red";
 else if(score<=4){
 
 popupResult.innerHTML="🟡 Medium Password";
+securityScore.innerHTML="Security Score: 65 / 100";
+crackTime.innerHTML="Estimated Crack Time: A few days";
 
 strengthFill.style.width="70%";
 
@@ -501,6 +507,8 @@ strengthFill.style.background="orange";
 else{
 
 popupResult.innerHTML="🟢 Strong Password";
+securityScore.innerHTML="Security Score: 95 / 100";
+crackTime.innerHTML="Estimated Crack Time: Hundreds of years";
 
 strengthFill.style.width="100%";
 
