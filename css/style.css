@@ -1037,3 +1037,39 @@ color:white;
 min-height:180px;
 
 }
+/* ==========================
+   Feature Card Extras
+========================== */
+
+.feature-icon{
+    font-size:55px;
+    margin-bottom:20px;
+    transition:0.4s ease;
+}
+
+.card:hover .feature-icon{
+    transform:scale(1.2) rotate(8deg);
+}
+
+.feature-link{
+    display:inline-block;
+    margin-top:20px;
+    color:#00F5FF;
+    font-weight:bold;
+    transition:0.3s ease;
+}
+
+.card:hover .feature-link{
+    letter-spacing:1px;
+}
+
+.card h3{
+    margin-top:10px;
+    font-size:28px;
+}
+
+.card p{
+    margin-top:15px;
+    margin-bottom:20px;
+    line-height:1.7;
+}
