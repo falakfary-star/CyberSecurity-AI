@@ -431,3 +431,116 @@ if (passwordCard && passwordPopup && closePopup) {
     });
 
 }
+/* ==========================
+   Popup Password Analyzer
+========================== */
+
+const popupPassword = document.getElementById("popupPassword");
+const analyzePopupPassword = document.getElementById("analyzePopupPassword");
+const popupResult = document.getElementById("popupResult");
+const strengthFill = document.getElementById("strengthFill");
+
+const lengthCheck = document.getElementById("lengthCheck");
+const upperCheck = document.getElementById("upperCheck");
+const lowerCheck = document.getElementById("lowerCheck");
+const numberCheck = document.getElementById("numberCheck");
+const specialCheck = document.getElementById("specialCheck");
+
+if (analyzePopupPassword) {
+
+function analyzePassword() {
+
+const password = popupPassword.value;
+
+let score = 0;
+
+const hasUpper = /[A-Z]/.test(password);
+const hasLower = /[a-z]/.test(password);
+const hasNumber = /[0-9]/.test(password);
+const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+lengthCheck.innerHTML =
+password.length >= 8 ? "✅ At least 8 characters" : "❌ At least 8 characters";
+
+upperCheck.innerHTML =
+hasUpper ? "✅ Uppercase letter" : "❌ Uppercase letter";
+
+lowerCheck.innerHTML =
+hasLower ? "✅ Lowercase letter" : "❌ Lowercase letter";
+
+numberCheck.innerHTML =
+hasNumber ? "✅ Number" : "❌ Number";
+
+specialCheck.innerHTML =
+hasSpecial ? "✅ Special character" : "❌ Special character";
+
+if(password.length>=8) score++;
+if(hasUpper) score++;
+if(hasLower) score++;
+if(hasNumber) score++;
+if(hasSpecial) score++;
+
+if(score<=2){
+
+popupResult.innerHTML="🔴 Weak Password";
+
+strengthFill.style.width="35%";
+
+strengthFill.style.background="red";
+
+}
+else if(score<=4){
+
+popupResult.innerHTML="🟡 Medium Password";
+
+strengthFill.style.width="70%";
+
+strengthFill.style.background="orange";
+
+}
+else{
+
+popupResult.innerHTML="🟢 Strong Password";
+
+strengthFill.style.width="100%";
+
+strengthFill.style.background="lime";
+
+}
+
+}
+if (analyzePopupPassword) {
+    analyzePopupPassword.addEventListener("click", analyzePassword);
+}
+if (popupPassword) {
+    popupPassword.addEventListener("input", analyzePassword);
+}
+}
+/* ==========================
+   Show / Hide Password
+========================== */
+
+const togglePopupPassword =
+document.getElementById("togglePopupPassword");
+
+if(togglePopupPassword){
+
+togglePopupPassword.addEventListener("click",()=>{
+
+if(popupPassword.type==="password"){
+
+popupPassword.type="text";
+
+togglePopupPassword.innerHTML="🙈";
+
+}else{
+
+popupPassword.type="password";
+
+togglePopupPassword.innerHTML="👁️";
+
+}
+
+});
+
+}

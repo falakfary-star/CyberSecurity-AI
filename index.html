@@ -234,7 +234,7 @@
     </div>
      
 </footer>
-<!-- Password Popup -->
+<!-- Password Analyzer Popup -->
 
 <div id="passwordPopup" class="popup">
 
@@ -242,29 +242,48 @@
 
         <span class="close-popup">&times;</span>
 
-        <h2>🔐 Password Checker</h2>
+        <h2>🔐 Password Analyzer</h2>
 
-        <ul>
+        <p>Enter your password below to analyze its strength.</p>
 
-            <li>✔ Checks password length</li>
+        <div class="password-input-wrapper">
 
-            <li>✔ Detects uppercase letters</li>
+    <input
+        type="password"
+        id="popupPassword"
+        placeholder="Enter your password">
 
-            <li>✔ Detects lowercase letters</li>
+    <button type="button" id="togglePopupPassword">
+        👁️
+    </button>
 
-            <li>✔ Detects numbers</li>
+</div>
 
-            <li>✔ Detects special characters</li>
+        <button id="analyzePopupPassword">
+            Analyze Password
+        </button>
 
-            <li>✔ AI-powered strength analysis</li>
+        <div id="popupResult"></div>
+
+        <div class="strength-bar">
+
+            <div id="strengthFill"></div>
+
+        </div>
+
+        <ul class="password-checklist">
+
+            <li id="lengthCheck">❌ At least 8 characters</li>
+
+            <li id="upperCheck">❌ Uppercase letter</li>
+
+            <li id="lowerCheck">❌ Lowercase letter</li>
+
+            <li id="numberCheck">❌ Number</li>
+
+            <li id="specialCheck">❌ Special character</li>
 
         </ul>
-
-        <a href="#password-checker">
-
-            <button>Try Password Checker</button>
-
-        </a>
 
     </div>
 
