@@ -1006,3 +1006,34 @@ color:#FFD700;
 text-align:center;
 
 }
+/* ==========================
+   Cyber Awareness
+========================== */
+
+#topicSelect{
+    width:100%;
+    padding:14px;
+    margin-top:20px;
+    border-radius:10px;
+    background:#111827;
+    color:white;
+    border:1px solid #00F5FF;
+}
+
+#lessonBox{
+
+margin-top:25px;
+
+background:#111827;
+
+padding:20px;
+
+border-radius:12px;
+
+line-height:1.8;
+
+color:white;
+
+min-height:180px;
+
+}

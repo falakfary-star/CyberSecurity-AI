@@ -117,7 +117,7 @@
                 </p>
             </div>
 
-            <div class="card">
+            <div class="card" id="awarenessCard"></div>
                 <h3>📚 Cyber Awareness</h3>
                 <p>
                     Learn safe online habits and protect your digital identity.
@@ -331,6 +331,49 @@
             <li id="atCheck">❌ Contains @ symbol</li>
 
         </ul>
+
+    </div>
+
+</div>
+<!-- Cyber Awareness Popup -->
+
+<div id="awarenessPopup" class="popup">
+
+    <div class="popup-content">
+
+        <span class="close-awareness">&times;</span>
+
+        <h2>📚 Cyber Awareness Center</h2>
+
+        <p>Select a cybersecurity topic to learn.</p>
+
+        <select id="topicSelect">
+
+            <option value="">Choose a Topic</option>
+
+            <option value="phishing">🎣 Phishing</option>
+
+            <option value="malware">💻 Malware</option>
+
+            <option value="password">🔐 Strong Passwords</option>
+
+            <option value="email">📧 Email Scams</option>
+
+            <option value="browsing">🌐 Safe Browsing</option>
+
+        </select>
+
+        <button id="learnTopic">
+
+            Learn
+
+        </button>
+
+        <div id="lessonBox">
+
+            Select a topic and click Learn.
+
+        </div>
 
     </div>
 

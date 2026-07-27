@@ -640,3 +640,108 @@ if (scanPopupURL) {
     });
 
 }
+/* ==========================
+   Cyber Awareness Popup
+========================== */
+
+const awarenessCard = document.getElementById("awarenessCard");
+const awarenessPopup = document.getElementById("awarenessPopup");
+const closeAwareness = document.querySelector(".close-awareness");
+const topicSelect = document.getElementById("topicSelect");
+const learnTopic = document.getElementById("learnTopic");
+const lessonBox = document.getElementById("lessonBox");
+
+if (awarenessCard && awarenessPopup && closeAwareness) {
+
+    awarenessCard.addEventListener("click", () => {
+        awarenessPopup.style.display = "flex";
+    });
+
+    closeAwareness.addEventListener("click", () => {
+        awarenessPopup.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === awarenessPopup) {
+            awarenessPopup.style.display = "none";
+        }
+    });
+
+}
+
+if (learnTopic) {
+
+    learnTopic.addEventListener("click", function () {
+
+        switch(topicSelect.value){
+
+            case "phishing":
+
+                lessonBox.innerHTML = `
+                <h3>🎣 Phishing</h3>
+                <p>Phishing is a cyber attack where fake emails or websites trick people into revealing passwords or banking information.</p>
+                <p><strong>Warning Signs:</strong></p>
+                <ul>
+                    <li>⚠️ Urgent messages</li>
+                    <li>⚠️ Unknown sender</li>
+                    <li>⚠️ Suspicious links</li>
+                    <li>⚠️ Requests for personal information</li>
+                </ul>
+                `;
+                break;
+
+            case "malware":
+
+                lessonBox.innerHTML = `
+                <h3>💻 Malware</h3>
+                <p>Malware is harmful software designed to damage systems or steal information.</p>
+                <ul>
+                    <li>🦠 Virus</li>
+                    <li>🐴 Trojan</li>
+                    <li>🔒 Ransomware</li>
+                    <li>👀 Spyware</li>
+                </ul>
+                `;
+                break;
+
+            case "password":
+
+                lessonBox.innerHTML = `
+                <h3>🔐 Strong Passwords</h3>
+                <p>A strong password should:</p>
+                <ul>
+                    <li>✅ Be at least 12 characters</li>
+                    <li>✅ Include uppercase letters</li>
+                    <li>✅ Include lowercase letters</li>
+                    <li>✅ Include numbers</li>
+                    <li>✅ Include special characters</li>
+                </ul>
+                `;
+                break;
+
+            case "email":
+
+                lessonBox.innerHTML = `
+                <h3>📧 Email Scams</h3>
+                <p>Never open unexpected attachments or click unknown links.</p>
+                <p>Always verify the sender before responding.</p>
+                `;
+                break;
+
+            case "browsing":
+
+                lessonBox.innerHTML = `
+                <h3>🌐 Safe Browsing</h3>
+                <p>Use HTTPS websites, keep your browser updated, and avoid downloading files from unknown sources.</p>
+                `;
+                break;
+
+            default:
+
+                lessonBox.innerHTML="Please select a topic.";
+
+        }
+
+    });
+
+}
