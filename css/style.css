@@ -50,27 +50,22 @@ body {
 }
 
 .hero button {
-    background: linear-gradient(135deg, #00F5FF, #007BFF);
-    color: white;
-    border: none;
     padding: 15px 35px;
     margin: 10px;
-    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00e5ff, #007bff);
+    color: white;
+    font-size: 17px;
     font-weight: bold;
-    border-radius: 50px;
     cursor: pointer;
     transition: all 0.35s ease;
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+    box-shadow: 0 0 18px rgba(0,229,255,0.4);
 }
 
 .hero button:hover {
-    transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.9);
-    background: linear-gradient(135deg, #00D4FF, #005BFF);
-}
-
-.hero button:active {
-    transform: scale(0.96);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 30px rgba(0,229,255,0.8);
 }
 
 /* ============================
@@ -659,4 +654,136 @@ body.light-mode .footer {
     color: #FFF176;
     text-shadow: 0 0 20px rgba(255, 215, 0, 1);
     transition: 0.3s ease;
+}
+/* ==========================
+   Professional Loading Screen
+========================== */
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0d1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.shield {
+    font-size: 70px;
+    animation: pulse 1.2s infinite;
+}
+
+.loader-content h1 {
+    color: #00e5ff;
+    margin-top: 10px;
+    font-size: 38px;
+    letter-spacing: 2px;
+}
+
+.loader-content p {
+    color: white;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.loading-bar {
+    width: 280px;
+    height: 8px;
+    background: #333;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.loading-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00e5ff, #00ff99);
+    animation: loading 2s forwards;
+}
+
+@keyframes loading {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* ==========================
+   Cyber Particles Background
+========================== */
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+    z-index: -1;
+}
+/* ==========================
+   Back To Top Button
+========================== */
+
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00e5ff, #007bff);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.9);
+}
+/* ==========================
+   Floating Hero Image
+========================== */
+
+.hero-image img {
+    animation: floatImage 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.5));
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }

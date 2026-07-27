@@ -256,3 +256,174 @@ if (themeToggle) {
     });
 
 }
+/* ==========================
+   Loading Screen
+========================== */
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("loader").style.display = "none";
+    }, 2000);
+});
+
+/* ==========================
+   Cyber Particles
+========================== */
+
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 60,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    color: {
+      value: "#00e5ff"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: 3
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#00e5ff",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: {
+        enable: true,
+        mode: "grab"
+      }
+    },
+    modes: {
+      grab: {
+        distance: 180,
+        line_linked: {
+          opacity: 1
+        }
+      }
+    }
+  },
+  retina_detect: true
+});
+/* ==========================
+   Animated Statistics Counter
+========================== */
+
+const counters = document.querySelectorAll(".counter");
+
+const animateCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const speed = 200;
+    const increment = target / speed;
+
+    let count = 0;
+
+    const updateCounter = () => {
+        count += increment;
+
+        if (count < target) {
+            counter.innerText = Math.floor(count).toLocaleString();
+            requestAnimationFrame(updateCounter);
+        } else {
+            counter.innerText = target.toLocaleString() + "+";
+        }
+    };
+
+    updateCounter();
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+counters.forEach(counter => {
+    observer.observe(counter);
+});
+/* ==========================
+   Back To Top Button
+========================== */
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+});
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+/* ==========================
+   Hero Typing Animation
+========================== */
+
+const typingHeading = document.getElementById("typingHeading");
+
+if (typingHeading) {
+    const text = "🛡️ CyberShield AI";
+    let index = 0;
+
+    typingHeading.textContent = "";
+
+    function typeHeading() {
+        if (index < text.length) {
+            typingHeading.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeHeading, 120);
+        }
+    }
+
+    typeHeading();
+}
+/* ==========================
+   Hero Subtitle Typing
+========================== */
+
+const subtitle = document.getElementById("typingSubtitle");
+
+if (subtitle) {
+    const subtitleText = "Protecting Your Digital World...";
+    let i = 0;
+
+    subtitle.textContent = "";
+
+    function typeSubtitle() {
+        if (i < subtitleText.length) {
+            subtitle.textContent += subtitleText.charAt(i);
+            i++;
+            setTimeout(typeSubtitle, 70);
+        }
+    }
+
+    setTimeout(typeSubtitle, 2500);
+}
