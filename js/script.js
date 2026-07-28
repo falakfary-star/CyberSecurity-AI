@@ -1083,3 +1083,27 @@ if (scanWebsite) {
     });
 
 }
+/* ==========================
+AI Powered Information Card
+========================== */
+
+const aiBadge = document.getElementById("aiBadge");
+const aiInfoCard = document.getElementById("aiInfoCard");
+
+if (aiBadge && aiInfoCard) {
+
+    aiBadge.addEventListener("click", function () {
+
+        if (aiInfoCard.style.display === "block") {
+
+            aiInfoCard.style.display = "none";
+
+        } else {
+
+            aiInfoCard.style.display = "block";
+
+        }
+
+    });
+
+}

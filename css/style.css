@@ -1432,3 +1432,72 @@ if (scanWebsite) {
     });
 
 }
+/* ==========================
+AI Information Card
+========================== */
+
+.info-card{
+
+display:none;
+
+margin-top:20px;
+
+padding:20px;
+
+background:rgba(15,23,42,0.95);
+
+border:2px solid #00F5FF;
+
+border-radius:15px;
+
+box-shadow:0 0 20px rgba(0,245,255,0.35);
+
+color:white;
+
+animation:fadeIn .4s ease;
+
+}
+
+.info-card h3{
+
+color:#00F5FF;
+
+margin-bottom:15px;
+
+}
+
+.info-card p{
+
+margin-bottom:15px;
+
+line-height:1.7;
+
+}
+
+.info-card ul{
+
+padding-left:20px;
+
+}
+
+.info-card li{
+
+margin-bottom:10px;
+
+}
+
+#aiBadge{
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#aiBadge:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 15px #00F5FF;
+
+}
