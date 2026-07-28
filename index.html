@@ -235,20 +235,31 @@ Ask cybersecurity, networking, programming, web development,
 operating systems, databases, AI, or general computer science questions.
 </p>
 
-        <input
-            type="text"
-            id="aiQuestion"
-           placeholder="Ask anything about Cyber Security or Computer Science..."
+        <div class="assistant-search">
 
-        <br><br>
+    <input
+        type="text"
+        id="aiQuestion"
+        placeholder="Ask anything about Cyber Security or Computer Science..."
+        autocomplete="off"
+    >
+
+    <div id="suggestions" class="suggestions-box"></div>
+
+</div>
 
         <button id="Get Answer">
             Get Answer
         </button>
 
-        <h3 id="aiAnswer">
-            Ask a question and CyberShield Knowledge Assistant will help you.
-        </h3>
+       <div id="chatContainer" class="chat-container">
+
+    <div class="assistant-message">
+        <strong>🧠 CyberShield Knowledge Assistant</strong><br>
+        Hello! 👋 Ask me anything about Cyber Security or Computer Science.
+    </div>
+
+</div>
 
     </div>
 

@@ -1123,3 +1123,64 @@ color:lime;
 font-weight:bold;
 
 }
+/* ==========================
+Question Suggestions
+========================== */
+
+.assistant-search{
+
+position:relative;
+
+width:100%;
+
+}
+
+.suggestions-box{
+
+position:absolute;
+
+top:100%;
+
+left:0;
+
+right:0;
+
+background:#111827;
+
+border:1px solid #00F5FF;
+
+border-top:none;
+
+border-radius:0 0 12px 12px;
+
+display:none;
+
+max-height:250px;
+
+overflow-y:auto;
+
+z-index:999;
+
+}
+
+.suggestion{
+
+padding:12px 15px;
+
+cursor:pointer;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.suggestion:hover{
+
+background:#00F5FF;
+
+color:#000;
+
+font-weight:bold;
+
+}

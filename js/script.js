@@ -161,88 +161,116 @@ CyberShield Knowledge Assistant
 
 const aiQuestion = document.getElementById("aiQuestion");
 const askAIButton = document.getElementById("askAI");
-const aiAnswer = document.getElementById("aiAnswer");
+const chatContainer = document.getElementById("chatContainer");
+aiQuestion.addEventListener("focus",()=>{
 
-const knowledgeBase = {
+showSuggestions("");
 
-phishing:
-"🎣 Phishing is a cyber attack where attackers create fake emails or websites to trick users into revealing passwords, banking information or personal data. Always verify website URLs before entering sensitive information.",
+});
 
-malware:
-"🦠 Malware is malicious software such as viruses, worms, trojans, spyware and ransomware that damages computers or steals information.",
+aiQuestion.addEventListener("input",()=>{
 
-virus:
-"💻 A computer virus is a malicious program that attaches itself to files and spreads to other computers when infected files are opened.",
+showSuggestions(aiQuestion.value);
 
-ransomware:
-"🔒 Ransomware encrypts your files and demands payment to unlock them. Never pay the ransom. Restore data from backups instead.",
+});
 
-firewall:
-"🔥 A firewall protects your computer by filtering incoming and outgoing network traffic and blocking unauthorized access.",
+function showSuggestions(text){
 
-vpn:
-"🌍 A VPN (Virtual Private Network) encrypts your internet connection and hides your IP address to improve privacy and security.",
+suggestionBox.innerHTML="";
 
-password:
-"🔐 A strong password should contain at least 12 characters with uppercase letters, lowercase letters, numbers and symbols. Never reuse passwords.",
+const filtered=suggestions.filter(item=>item.toLowerCase().includes(text.toLowerCase()));
 
-https:
-"🌐 HTTPS encrypts communication between your browser and websites. Always prefer HTTPS over HTTP.",
+filtered.forEach(item=>{
 
-sql:
-"🗄 SQL Injection is a web attack where hackers insert malicious SQL commands into input fields to access or manipulate databases.",
+const div=document.createElement("div");
 
-xss:
-"⚠ XSS (Cross Site Scripting) allows attackers to inject malicious JavaScript into webpages viewed by other users.",
+div.className="suggestion";
 
-python:
-"🐍 Python is a powerful high-level programming language widely used for web development, AI, cybersecurity, automation and data science.",
+div.innerText=item;
 
-java:
-"☕ Java is an object-oriented programming language used for desktop applications, Android development and enterprise software.",
+div.onclick=()=>{
 
-cpp:
-"⚙ C++ is a fast programming language commonly used in game development, operating systems and competitive programming.",
+aiQuestion.value=item;
 
-html:
-"📄 HTML (HyperText Markup Language) provides the structure of webpages.",
-
-css:
-"🎨 CSS (Cascading Style Sheets) controls the design, colors and layout of webpages.",
-
-javascript:
-"⚡ JavaScript makes websites interactive by handling animations, forms, buttons and dynamic content.",
-
-database:
-"🗄 A database stores and organizes data efficiently. Examples include MySQL, PostgreSQL and MongoDB.",
-
-network:
-"🌐 A computer network connects multiple devices together to share information and resources.",
-
-ram:
-"💾 RAM (Random Access Memory) temporarily stores data while programs are running. More RAM usually means better multitasking.",
-
-cpu:
-"🖥 CPU (Central Processing Unit) is the brain of the computer that executes instructions.",
-
-ai:
-"🤖 Artificial Intelligence enables computers to perform tasks that normally require human intelligence such as learning, reasoning and decision making."
+suggestionBox.style.display="none";
 
 };
 
-if(askAIButton){
+suggestionBox.appendChild(div);
 
-askAIButton.addEventListener("click",()=>{
+});
 
-const question = aiQuestion.value.toLowerCase().trim();
-
-if(question===""){
-
-aiAnswer.innerHTML="⚠ Please enter a question.";
-
-return;
+suggestionBox.style.display=filtered.length?"block":"none";
 
 }
+
+document.addEventListener("click",(e)=>{
+
+if(!e.target.closest(".assistant-search")){
+
+suggestionBox.style.display="none";
+
+}
+
+});
+
+const knowledgeBase = {
+
+phishing:"🎣 Phishing is a cyber attack where attackers create fake emails or websites to steal passwords or personal information.",
+
+malware:"🦠 Malware is harmful software including viruses, ransomware, worms, spyware and trojans.",
+
+virus:"💻 A computer virus attaches itself to files and spreads between computers.",
+
+ransomware:"🔒 Ransomware encrypts files and demands payment for recovery.",
+
+firewall:"🔥 A firewall filters network traffic to block unauthorized access.",
+
+vpn:"🌍 VPN encrypts internet traffic and protects online privacy.",
+
+password:"🔐 Strong passwords should contain uppercase, lowercase, numbers and symbols with at least 12 characters.",
+
+https:"🌐 HTTPS encrypts communication between your browser and websites.",
+
+sql:"🗄 SQL Injection attacks databases through vulnerable input fields.",
+
+xss:"⚠ XSS injects malicious JavaScript into webpages.",
+
+python:"🐍 Python is widely used in AI, cybersecurity, automation and web development.",
+
+html:"📄 HTML creates webpage structure.",
+
+css:"🎨 CSS designs webpages.",
+
+javascript:"⚡ JavaScript makes webpages interactive.",
+
+database:"🗄 Databases store organized information such as MySQL and MongoDB.",
+
+network:"🌐 Computer networks connect multiple devices together.",
+
+cpu:"🖥 CPU is the brain of the computer.",
+
+ram:"💾 RAM temporarily stores running programs for quick access.",
+
+ai:"🤖 Artificial Intelligence enables machines to simulate human intelligence."
+
+};
+
+function addMessage(message,type){
+
+const div=document.createElement("div");
+
+div.className=type;
+
+div.innerHTML=message;
+
+chatContainer.appendChild(div);
+
+chatContainer.scrollTop=chatContainer.scrollHeight;
+
+}
+
+function replyQuestion(question){
 
 let found=false;
 
@@ -250,7 +278,9 @@ for(const key in knowledgeBase){
 
 if(question.includes(key)){
 
-aiAnswer.innerHTML=knowledgeBase[key];
+addMessage(
+"<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>"+knowledgeBase[key],
+"assistant-message");
 
 found=true;
 
@@ -262,10 +292,27 @@ break;
 
 if(!found){
 
-aiAnswer.innerHTML=
-"🧠 I don't have information about that topic yet.<br><br>Try asking about:<br><br>🔐 Passwords<br>🎣 Phishing<br>🦠 Malware<br>🌐 Networking<br>💻 Programming<br>🖥 Computer Hardware<br>🤖 Artificial Intelligence<br>🗄 Databases<br>🌍 Web Development";
+addMessage(
+"<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>I don't know this topic yet.<br><br>Try asking about:<br>🔐 Passwords<br>🎣 Phishing<br>🦠 Malware<br>🌐 Networking<br>💻 Programming<br>🤖 AI<br>🗄 Databases",
+"assistant-message");
 
 }
+
+}
+
+if(askAIButton){
+
+askAIButton.addEventListener("click",()=>{
+
+const question=aiQuestion.value.trim();
+
+if(question==="") return;
+
+addMessage("<strong>👤 You</strong><br><br>"+question,"user-message");
+
+replyQuestion(question.toLowerCase());
+
+aiQuestion.value="";
 
 });
 
@@ -818,3 +865,29 @@ function updateClock(){
 setInterval(updateClock,1000);
 
 updateClock();
+const suggestions = [
+
+"What is phishing?",
+"What is malware?",
+"What is ransomware?",
+"What is a virus?",
+"What is a firewall?",
+"What is VPN?",
+"How to create a strong password?",
+"What is SQL Injection?",
+"What is XSS?",
+"What is Python?",
+"What is Java?",
+"What is C++?",
+"What is HTML?",
+"What is CSS?",
+"What is JavaScript?",
+"What is AI?",
+"What is RAM?",
+"What is CPU?",
+"What is Networking?",
+"What is Database?"
+
+];
+
+const suggestionBox = document.getElementById("suggestions");
