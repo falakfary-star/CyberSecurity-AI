@@ -985,4 +985,3 @@ const suggestions = [
 
 ];
 
-const suggestionBox = document.getElementById("suggestions");
