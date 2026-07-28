@@ -154,9 +154,9 @@ function revealSections() {
 window.addEventListener("scroll", revealSections);
 
 revealSections();
-// ============================
-// Cyber AI Assistant
-// ============================
+/* ==========================
+   Gemini AI Assistant
+========================== */
 
 const aiQuestion = document.getElementById("aiQuestion");
 const askAIButton = document.getElementById("askAI");
@@ -164,60 +164,52 @@ const aiAnswer = document.getElementById("aiAnswer");
 
 if (askAIButton) {
 
-    askAIButton.addEventListener("click", function () {
+    askAIButton.addEventListener("click", async () => {
 
-        const question = aiQuestion.value.toLowerCase();
-        aiAnswer.innerHTML = "🤖 Thinking...";
-        aiAnswer.style.color = "#FFD700";
+        const message = aiQuestion.value.trim();
 
-        setTimeout(function () {
+        if (!message) {
+            aiAnswer.innerHTML = "⚠ Please enter a question.";
+            return;
+        }
 
-    if (question.includes("phishing")) {
+        aiAnswer.innerHTML = "🤖 CyberShield AI is thinking...";
 
-            aiAnswer.innerHTML =
-                "🛡️ Phishing is a cyber attack where fake emails or websites are used to steal your personal information.";
+        try {
+
+            const response = await fetch("/api/chat", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    message
+                })
+
+            });
+
+            const data = await response.json();
+
+            aiAnswer.innerHTML = data.reply;
 
         }
 
-        else if (question.includes("malware")) {
+        catch (error) {
 
             aiAnswer.innerHTML =
-                "💻 Malware is harmful software that can damage your computer or steal your data.";
+                "❌ Unable to connect to CyberShield AI.";
+
+            console.error(error);
 
         }
 
-        else if (question.includes("password")) {
-
-            aiAnswer.innerHTML =
-                "🔐 A strong password should contain at least 12 characters with uppercase letters, lowercase letters, numbers, and special symbols.";
-
-        }
-
-        else if (question.includes("ransomware")) {
-
-            aiAnswer.innerHTML =
-                "🔒 Ransomware is malware that locks or encrypts your files and demands money to restore them.";
-
-        }
-
-        else if (question.includes("virus")) {
-
-            aiAnswer.innerHTML =
-                "🦠 A computer virus is a malicious program that spreads from one file or computer to another.";
-
-        }
-
-        else {
-
-            aiAnswer.innerHTML =
-                "🤖 Sorry, I don't know that yet. Try asking about phishing, malware, ransomware, virus, or passwords.";
-
-        }
-        }, 1000);
-
-         });
+    });
 
 }
+
 // ============================
 // Theme Toggle
 // ============================
