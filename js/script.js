@@ -154,59 +154,120 @@ function revealSections() {
 window.addEventListener("scroll", revealSections);
 
 revealSections();
+
 /* ==========================
-   Gemini AI Assistant
+CyberShield Knowledge Assistant
 ========================== */
 
 const aiQuestion = document.getElementById("aiQuestion");
 const askAIButton = document.getElementById("askAI");
 const aiAnswer = document.getElementById("aiAnswer");
 
-if (askAIButton) {
+const knowledgeBase = {
 
-    askAIButton.addEventListener("click", async () => {
+phishing:
+"🎣 Phishing is a cyber attack where attackers create fake emails or websites to trick users into revealing passwords, banking information or personal data. Always verify website URLs before entering sensitive information.",
 
-        const message = aiQuestion.value.trim();
+malware:
+"🦠 Malware is malicious software such as viruses, worms, trojans, spyware and ransomware that damages computers or steals information.",
 
-        if (!message) {
-            aiAnswer.innerHTML = "⚠ Please enter a question.";
-            return;
-        }
+virus:
+"💻 A computer virus is a malicious program that attaches itself to files and spreads to other computers when infected files are opened.",
 
-        aiAnswer.innerHTML = "🤖 CyberShield AI is thinking...";
+ransomware:
+"🔒 Ransomware encrypts your files and demands payment to unlock them. Never pay the ransom. Restore data from backups instead.",
 
-        try {
+firewall:
+"🔥 A firewall protects your computer by filtering incoming and outgoing network traffic and blocking unauthorized access.",
 
-            const response = await fetch("/api/chat", {
+vpn:
+"🌍 A VPN (Virtual Private Network) encrypts your internet connection and hides your IP address to improve privacy and security.",
 
-                method: "POST",
+password:
+"🔐 A strong password should contain at least 12 characters with uppercase letters, lowercase letters, numbers and symbols. Never reuse passwords.",
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+https:
+"🌐 HTTPS encrypts communication between your browser and websites. Always prefer HTTPS over HTTP.",
 
-                body: JSON.stringify({
-                    message
-                })
+sql:
+"🗄 SQL Injection is a web attack where hackers insert malicious SQL commands into input fields to access or manipulate databases.",
 
-            });
+xss:
+"⚠ XSS (Cross Site Scripting) allows attackers to inject malicious JavaScript into webpages viewed by other users.",
 
-            const data = await response.json();
+python:
+"🐍 Python is a powerful high-level programming language widely used for web development, AI, cybersecurity, automation and data science.",
 
-            aiAnswer.innerHTML = data.reply;
+java:
+"☕ Java is an object-oriented programming language used for desktop applications, Android development and enterprise software.",
 
-        }
+cpp:
+"⚙ C++ is a fast programming language commonly used in game development, operating systems and competitive programming.",
 
-        catch (error) {
+html:
+"📄 HTML (HyperText Markup Language) provides the structure of webpages.",
 
-            aiAnswer.innerHTML =
-                "❌ Unable to connect to CyberShield AI.";
+css:
+"🎨 CSS (Cascading Style Sheets) controls the design, colors and layout of webpages.",
 
-            console.error(error);
+javascript:
+"⚡ JavaScript makes websites interactive by handling animations, forms, buttons and dynamic content.",
 
-        }
+database:
+"🗄 A database stores and organizes data efficiently. Examples include MySQL, PostgreSQL and MongoDB.",
 
-    });
+network:
+"🌐 A computer network connects multiple devices together to share information and resources.",
+
+ram:
+"💾 RAM (Random Access Memory) temporarily stores data while programs are running. More RAM usually means better multitasking.",
+
+cpu:
+"🖥 CPU (Central Processing Unit) is the brain of the computer that executes instructions.",
+
+ai:
+"🤖 Artificial Intelligence enables computers to perform tasks that normally require human intelligence such as learning, reasoning and decision making."
+
+};
+
+if(askAIButton){
+
+askAIButton.addEventListener("click",()=>{
+
+const question = aiQuestion.value.toLowerCase().trim();
+
+if(question===""){
+
+aiAnswer.innerHTML="⚠ Please enter a question.";
+
+return;
+
+}
+
+let found=false;
+
+for(const key in knowledgeBase){
+
+if(question.includes(key)){
+
+aiAnswer.innerHTML=knowledgeBase[key];
+
+found=true;
+
+break;
+
+}
+
+}
+
+if(!found){
+
+aiAnswer.innerHTML=
+"🧠 I don't have information about that topic yet.<br><br>Try asking about:<br><br>🔐 Passwords<br>🎣 Phishing<br>🦠 Malware<br>🌐 Networking<br>💻 Programming<br>🖥 Computer Hardware<br>🤖 Artificial Intelligence<br>🗄 Databases<br>🌍 Web Development";
+
+}
+
+});
 
 }
 
