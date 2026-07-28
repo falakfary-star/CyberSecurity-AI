@@ -753,7 +753,7 @@ togglePopupPassword.innerHTML="👁️";
 
 const phishingCard = document.getElementById("phishingCard");
 const phishingPopup = document.getElementById("phishingPopup");
-const closePhishing = document.querySelector(".close-phishing");
+const closePhishing = document.getElementById("closePhishingPopup");
 
 if (phishingCard && phishingPopup && closePhishing) {
 
