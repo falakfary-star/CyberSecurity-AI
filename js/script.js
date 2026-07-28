@@ -960,28 +960,3 @@ function updateClock(){
 setInterval(updateClock,1000);
 
 updateClock();
-const suggestions = [
-
-"What is phishing?",
-"What is malware?",
-"What is ransomware?",
-"What is a virus?",
-"What is a firewall?",
-"What is VPN?",
-"How to create a strong password?",
-"What is SQL Injection?",
-"What is XSS?",
-"What is Python?",
-"What is Java?",
-"What is C++?",
-"What is HTML?",
-"What is CSS?",
-"What is JavaScript?",
-"What is AI?",
-"What is RAM?",
-"What is CPU?",
-"What is Networking?",
-"What is Database?"
-
-];
-
