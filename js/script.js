@@ -1084,25 +1084,117 @@ if (scanWebsite) {
 
 }
 /* ==========================
-AI Powered Information Card
+Hero Information Cards
 ========================== */
 
 const aiBadge = document.getElementById("aiBadge");
+const realtimeBadge = document.getElementById("realtimeBadge");
+const educationBadge = document.getElementById("educationBadge");
+
 const aiInfoCard = document.getElementById("aiInfoCard");
+const infoContent = document.getElementById("infoContent");
 
-if (aiBadge && aiInfoCard) {
+function showInfo(title, description, items) {
 
-    aiBadge.addEventListener("click", function () {
+    let html = `<h3>${title}</h3>`;
 
-        if (aiInfoCard.style.display === "block") {
+    html += `<p>${description}</p>`;
 
-            aiInfoCard.style.display = "none";
+    html += "<ul>";
 
-        } else {
+    items.forEach(item => {
 
-            aiInfoCard.style.display = "block";
+        html += `<li>${item}</li>`;
 
-        }
+    });
+
+    html += "</ul>";
+
+    infoContent.innerHTML = html;
+
+    aiInfoCard.style.display = "block";
+
+}
+
+if (aiBadge) {
+
+    aiBadge.addEventListener("click", () => {
+
+        showInfo(
+
+            "🛡 CyberShield Smart Scanner",
+
+            "CyberShield uses intelligent rule-based analysis to identify cybersecurity threats.",
+
+            [
+
+                "✔ URL Safety Analysis",
+
+                "✔ Password Strength Checker",
+
+                "✔ Cybersecurity Awareness",
+
+                "✔ Rule-Based Threat Detection"
+
+            ]
+
+        );
+
+    });
+
+}
+
+if (realtimeBadge) {
+
+    realtimeBadge.addEventListener("click", () => {
+
+        showInfo(
+
+            "⚡ Real-Time Detection",
+
+            "CyberShield instantly analyzes websites using smart security checks.",
+
+            [
+
+                "✔ HTTPS Verification",
+
+                "✔ Suspicious Keyword Detection",
+
+                "✔ URL Pattern Analysis",
+
+                "✔ Risk Score Calculation"
+
+            ]
+
+        );
+
+    });
+
+}
+
+if (educationBadge) {
+
+    educationBadge.addEventListener("click", () => {
+
+        showInfo(
+
+            "🔒 Educational Purpose",
+
+            "CyberShield is built to help students and beginners learn cybersecurity safely.",
+
+            [
+
+                "✔ Password Security",
+
+                "✔ Safe Browsing",
+
+                "✔ Phishing Awareness",
+
+                "✔ Cybersecurity Best Practices"
+
+            ]
+
+        );
 
     });
 
