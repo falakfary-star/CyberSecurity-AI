@@ -988,11 +988,7 @@ updateClock();
 
 /* ==========================
    Website Safety Checker
-========================== */
-
-const websiteURL = document.getElementById("websiteURL");
-const scanWebsite = document.getElementById("scanWebsite");
-const scanResult = document.getElementById("scanResult");
+========================== *
 
 if (scanWebsite) {
 
