@@ -479,11 +479,12 @@ document.body.classList.add(
    Loading Screen
 ========================== */
 
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        document.getElementById("loader").style.display = "none";
-    }, 2000);
-});
+setTimeout(function () {
+    const loader = document.getElementById("loader");
+    if (loader) {
+        loader.style.display = "none";
+    }
+}, 2000);
 
 /* ==========================
    Cyber Particles
