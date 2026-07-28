@@ -273,32 +273,47 @@ chatContainer.scrollTop=chatContainer.scrollHeight;
 function replyQuestion(question){
 
 let found=false;
-
-for(const key in knowledgeBase){
-
-if(question.includes(key)){
-
 addMessage(
-"<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>"+knowledgeBase[key],
-"assistant-message");
+"<strong>🧠 CyberShield Knowledge Assistant</strong><br><br><span class='typing'>Thinking</span>",
+"assistant-message"
+);
 
-found=true;
+const typingMessage = chatContainer.lastElementChild;
 
-break;
+setTimeout(() => {
+
+typingMessage.remove();
+
+let found = false;
+
+for (const key in knowledgeBase) {
+
+    if (question.includes(key)) {
+
+        addMessage(
+        "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>" +
+        knowledgeBase[key],
+        "assistant-message"
+        );
+
+        found = true;
+
+        break;
+
+    }
 
 }
 
-}
+if (!found) {
 
-if(!found){
-
-addMessage(
-"<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>I don't know this topic yet.<br><br>Try asking about:<br>🔐 Passwords<br>🎣 Phishing<br>🦠 Malware<br>🌐 Networking<br>💻 Programming<br>🤖 AI<br>🗄 Databases",
-"assistant-message");
-
-}
+    addMessage(
+    "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>I don't know this topic yet.<br><br>Try asking about:<br><br>🔐 Passwords<br>🎣 Phishing<br>🦠 Malware<br>🌐 Networking<br>💻 Programming<br>🤖 Artificial Intelligence<br>🗄 Databases",
+    "assistant-message"
+    );
 
 }
+
+},1000);
 
 if(askAIButton){
 
@@ -317,6 +332,15 @@ aiQuestion.value="";
 });
 
 }
+aiQuestion.addEventListener("keypress", function(e){
+
+if(e.key==="Enter"){
+
+askAIButton.click();
+
+}
+
+});
 
 // ============================
 // Theme Toggle
