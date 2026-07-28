@@ -412,45 +412,69 @@ if (aiQuestion) {
     });
 
 }
+/* ==========================
+Theme Selector
+========================== */
 
-// ============================
-// Theme Toggle
-// ============================
+const themeToggle=document.getElementById("themeToggle");
 
-const themeToggle = document.getElementById("themeToggle");
-// Load saved theme
+const themeMenu=document.getElementById("themeMenu");
 
-if (localStorage.getItem("theme") === "light") {
+const options=document.querySelectorAll(".theme-option");
 
-    document.body.classList.add("light-mode");
+themeToggle.addEventListener("click",()=>{
 
-    themeToggle.innerHTML = "☀️";
+themeMenu.style.display=
+
+themeMenu.style.display==="block"
+
+?"none":"block";
+
+});
+
+options.forEach(option=>{
+
+option.addEventListener("click",()=>{
+
+document.body.classList.remove(
+
+"theme-blue",
+
+"theme-green",
+
+"theme-purple"
+
+);
+
+const theme=option.dataset.theme;
+
+document.body.classList.add(
+
+"theme-"+theme
+
+);
+
+localStorage.setItem("theme",theme);
+
+themeMenu.style.display="none";
+
+});
+
+});
+
+const savedTheme=localStorage.getItem("theme");
+
+if(savedTheme){
+
+document.body.classList.add(
+
+"theme-"+savedTheme
+
+);
 
 }
 
-if (themeToggle) {
 
-    themeToggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("light-mode");
-
-       if (document.body.classList.contains("light-mode")) {
-
-    themeToggle.innerHTML = "☀️";
-
-    localStorage.setItem("theme", "light");
-
-} else {
-
-    themeToggle.innerHTML = "🌙";
-
-    localStorage.setItem("theme", "dark");
-
-}
-
-    });
-
-}
 /* ==========================
    Loading Screen
 ========================== */
