@@ -162,186 +162,255 @@ CyberShield Knowledge Assistant
 const aiQuestion = document.getElementById("aiQuestion");
 const askAIButton = document.getElementById("askAI");
 const chatContainer = document.getElementById("chatContainer");
-aiQuestion.addEventListener("focus",()=>{
 
-showSuggestions("");
+const suggestions = [
+    "What is phishing?",
+    "What is malware?",
+    "What is ransomware?",
+    "What is a computer virus?",
+    "What is a firewall?",
+    "What is VPN?",
+    "How to create a strong password?",
+    "What is SQL Injection?",
+    "What is XSS?",
+    "What is Python?",
+    "What is Java?",
+    "What is C++?",
+    "What is HTML?",
+    "What is CSS?",
+    "What is JavaScript?",
+    "What is Artificial Intelligence?",
+    "What is RAM?",
+    "What is CPU?",
+    "What is Networking?",
+    "What is Database?"
+];
 
-});
-
-aiQuestion.addEventListener("input",()=>{
-
-showSuggestions(aiQuestion.value);
-
-});
-
-function showSuggestions(text){
-
-suggestionBox.innerHTML="";
-
-const filtered=suggestions.filter(item=>item.toLowerCase().includes(text.toLowerCase()));
-
-filtered.forEach(item=>{
-
-const div=document.createElement("div");
-
-div.className="suggestion";
-
-div.innerText=item;
-
-div.onclick=()=>{
-
-aiQuestion.value=item;
-
-suggestionBox.style.display="none";
-
-};
-
-suggestionBox.appendChild(div);
-
-});
-
-suggestionBox.style.display=filtered.length?"block":"none";
-
-}
-
-document.addEventListener("click",(e)=>{
-
-if(!e.target.closest(".assistant-search")){
-
-suggestionBox.style.display="none";
-
-}
-
-});
+const suggestionBox = document.getElementById("suggestions");
 
 const knowledgeBase = {
 
 phishing:"🎣 Phishing is a cyber attack where attackers create fake emails or websites to steal passwords or personal information.",
 
-malware:"🦠 Malware is harmful software including viruses, ransomware, worms, spyware and trojans.",
-
-virus:"💻 A computer virus attaches itself to files and spreads between computers.",
+malware:"🦠 Malware is harmful software such as viruses, worms, trojans, spyware and ransomware.",
 
 ransomware:"🔒 Ransomware encrypts files and demands payment for recovery.",
 
-firewall:"🔥 A firewall filters network traffic to block unauthorized access.",
+virus:"💻 A computer virus attaches itself to files and spreads to other computers.",
 
-vpn:"🌍 VPN encrypts internet traffic and protects online privacy.",
+firewall:"🔥 A firewall filters network traffic and blocks unauthorized access.",
 
-password:"🔐 Strong passwords should contain uppercase, lowercase, numbers and symbols with at least 12 characters.",
+vpn:"🌍 VPN encrypts your internet connection and hides your IP address.",
 
-https:"🌐 HTTPS encrypts communication between your browser and websites.",
+password:"🔐 A strong password should contain at least 12 characters with uppercase, lowercase, numbers and symbols.",
 
 sql:"🗄 SQL Injection attacks databases through vulnerable input fields.",
 
-xss:"⚠ XSS injects malicious JavaScript into webpages.",
+xss:"⚠ XSS injects malicious JavaScript into webpages viewed by other users.",
 
-python:"🐍 Python is widely used in AI, cybersecurity, automation and web development.",
+python:"🐍 Python is a powerful language used in AI, Cyber Security, Automation and Web Development.",
 
-html:"📄 HTML creates webpage structure.",
+java:"☕ Java is an object-oriented programming language used in enterprise and Android development.",
 
-css:"🎨 CSS designs webpages.",
+cpp:"⚙ C++ is widely used in game development and operating systems.",
 
-javascript:"⚡ JavaScript makes webpages interactive.",
+html:"📄 HTML creates the structure of webpages.",
 
-database:"🗄 Databases store organized information such as MySQL and MongoDB.",
+css:"🎨 CSS controls the design and layout of webpages.",
 
-network:"🌐 Computer networks connect multiple devices together.",
+javascript:"⚡ JavaScript makes websites interactive.",
+
+database:"🗄 Databases store and organize information efficiently.",
+
+network:"🌐 Computer networks connect devices to share information.",
 
 cpu:"🖥 CPU is the brain of the computer.",
 
-ram:"💾 RAM temporarily stores running programs for quick access.",
+ram:"💾 RAM temporarily stores data while programs are running.",
 
-ai:"🤖 Artificial Intelligence enables machines to simulate human intelligence."
+ai:"🤖 Artificial Intelligence enables computers to perform tasks that normally require human intelligence."
 
 };
+function addMessage(message, type) {
 
-function addMessage(message,type){
+    const div = document.createElement("div");
 
-const div=document.createElement("div");
+    div.className = type;
 
-div.className=type;
+    div.innerHTML = message;
 
-div.innerHTML=message;
+    chatContainer.appendChild(div);
 
-chatContainer.appendChild(div);
-
-chatContainer.scrollTop=chatContainer.scrollHeight;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 
 }
 
-function replyQuestion(question){
+function replyQuestion(question) {
 
-let found=false;
-addMessage(
-"<strong>🧠 CyberShield Knowledge Assistant</strong><br><br><span class='typing'>Thinking</span>",
-"assistant-message"
-);
-
-const typingMessage = chatContainer.lastElementChild;
-
-setTimeout(() => {
-
-typingMessage.remove();
-
-let found = false;
-
-for (const key in knowledgeBase) {
-
-    if (question.includes(key)) {
-
-        addMessage(
-        "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>" +
-        knowledgeBase[key],
+    addMessage(
+        "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br><span class='typing'>Thinking</span>",
         "assistant-message"
-        );
+    );
 
-        found = true;
+    const typingMessage = chatContainer.lastElementChild;
 
-        break;
+    setTimeout(() => {
+
+        typingMessage.remove();
+
+        let found = false;
+
+        for (const key in knowledgeBase) {
+
+            if (question.includes(key)) {
+
+                addMessage(
+                    "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>" +
+                    knowledgeBase[key],
+                    "assistant-message"
+                );
+
+                found = true;
+
+                break;
+
+            }
+
+        }
+
+        if (!found) {
+
+            addMessage(
+                "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>" +
+                "I don't have information about that topic yet.<br><br>" +
+                "<strong>Try asking about:</strong><br>" +
+                "🔐 Passwords<br>" +
+                "🎣 Phishing<br>" +
+                "🦠 Malware<br>" +
+                "🔥 Firewall<br>" +
+                "🌐 Networking<br>" +
+                "🐍 Python<br>" +
+                "📄 HTML<br>" +
+                "🎨 CSS<br>" +
+                "⚡ JavaScript<br>" +
+                "🤖 Artificial Intelligence",
+                "assistant-message"
+            );
+
+        }
+
+    }, 1000);
+
+}
+/* ==========================
+Question Suggestions
+========================== */
+
+function showSuggestions(text) {
+
+    suggestionBox.innerHTML = "";
+
+    const filtered = suggestions.filter(item =>
+        item.toLowerCase().includes(text.toLowerCase())
+    );
+
+    filtered.forEach(item => {
+
+        const div = document.createElement("div");
+
+        div.className = "suggestion";
+
+        div.innerText = item;
+
+        div.addEventListener("click", () => {
+
+            aiQuestion.value = item;
+
+            suggestionBox.style.display = "none";
+
+            aiQuestion.focus();
+
+        });
+
+        suggestionBox.appendChild(div);
+
+    });
+
+    suggestionBox.style.display = filtered.length ? "block" : "none";
+
+}
+
+if (aiQuestion) {
+
+    aiQuestion.addEventListener("focus", () => {
+
+        showSuggestions("");
+
+    });
+
+    aiQuestion.addEventListener("input", () => {
+
+        showSuggestions(aiQuestion.value);
+
+    });
+
+}
+
+document.addEventListener("click", function (e) {
+
+    if (!e.target.closest(".assistant-search")) {
+
+        suggestionBox.style.display = "none";
 
     }
 
-}
+});
 
-if (!found) {
+/* ==========================
+Send Question
+========================== */
+
+function sendQuestion() {
+
+    const question = aiQuestion.value.trim();
+
+    if (question === "") {
+
+        return;
+
+    }
 
     addMessage(
-    "<strong>🧠 CyberShield Knowledge Assistant</strong><br><br>I don't know this topic yet.<br><br>Try asking about:<br><br>🔐 Passwords<br>🎣 Phishing<br>🦠 Malware<br>🌐 Networking<br>💻 Programming<br>🤖 Artificial Intelligence<br>🗄 Databases",
-    "assistant-message"
+        "<strong>👤 You</strong><br><br>" + question,
+        "user-message"
     );
 
-}
+    replyQuestion(question.toLowerCase());
 
-},1000);
-}   //
+    aiQuestion.value = "";
 
-if(askAIButton){
-
-askAIButton.addEventListener("click",()=>{
-
-const question=aiQuestion.value.trim();
-
-if(question==="") return;
-
-addMessage("<strong>👤 You</strong><br><br>"+question,"user-message");
-
-replyQuestion(question.toLowerCase());
-
-aiQuestion.value="";
-
-});
-
-
-aiQuestion.addEventListener("keypress", function(e){
-
-if(e.key==="Enter"){
-
-askAIButton.click();
+    suggestionBox.style.display = "none";
 
 }
 
-});
+if (askAIButton) {
+
+    askAIButton.addEventListener("click", sendQuestion);
+
+}
+
+if (aiQuestion) {
+
+    aiQuestion.addEventListener("keypress", function (e) {
+
+        if (e.key === "Enter") {
+
+            sendQuestion();
+
+        }
+
+    });
+
 }
 
 // ============================
