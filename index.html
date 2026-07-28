@@ -357,40 +357,27 @@ operating systems, databases, AI, or general computer science questions.
 
     <div class="popup-content">
 
-        <span class="close-phishing">&times;</span>
+        <h2>🛡 Website Safety Checker</h2>
 
-        <h2>🚨 Phishing Detector</h2>
+<p>
+Analyze any website URL to estimate whether it looks
+safe or suspicious before visiting it.
+</p>
 
-        <p>Paste a website URL below.</p>
+<input
+type="text"
+id="websiteURL"
+placeholder="https://example.com">
 
-        <input
-            type="text"
-            id="popupURL"
-            placeholder="https://example.com">
+<button id="scanWebsite">
+🔍 Scan Website
+</button>
 
-        <button id="scanPopupURL">
+<div id="scanResult"></div>
 
-            Scan URL
-
-        </button>
-
-        <div id="popupURLResult"></div>
-
-        <div id="riskScore"></div>
-
-        <ul class="password-checklist">
-
-            <li id="loginCheck">❌ Login keyword</li>
-
-            <li id="verifyCheck">❌ Verify keyword</li>
-
-            <li id="secureCheck">❌ Secure keyword</li>
-
-            <li id="freeCheck">❌ Free keyword</li>
-
-            <li id="atCheck">❌ Contains @ symbol</li>
-
-        </ul>
+<button id="closePhishingPopup">
+Close
+</button>
 
     </div>
 
