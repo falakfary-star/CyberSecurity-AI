@@ -331,7 +331,7 @@ aiQuestion.value="";
 
 });
 
-}
+
 aiQuestion.addEventListener("keypress", function(e){
 
 if(e.key==="Enter"){
@@ -341,6 +341,7 @@ askAIButton.click();
 }
 
 });
+}
 
 // ============================
 // Theme Toggle
