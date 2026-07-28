@@ -314,6 +314,7 @@ if (!found) {
 }
 
 },1000);
+}   //
 
 if(askAIButton){
 
