@@ -1,7 +1,17 @@
+
 /* ============================
    CyberShield AI - Global Styles
    ============================ */
 
+   :root{
+
+--primary:var(--primary);
+
+--secondary:var(--secondary);
+
+--glow:var(--glow);
+
+}
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +41,7 @@ body {
 
 .hero h1 {
     font-size: 60px;
-    color: #00F5FF;
+    color: var(--primary);
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -54,7 +64,7 @@ body {
     margin: 10px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(135deg, #00e5ff, #007bff);
+    background: linear-gradient(135deg, #00e5ff, var(--secondary));
     color: white;
     font-size: 17px;
     font-weight: bold;
@@ -87,12 +97,12 @@ body {
 }
 
 .logo {
-    color: #00F5FF;
+    color: var(--primary);
     font-size: 28px;
     font-weight: bold;
-    text-shadow: 0 0 5px #00F5FF,
-                 0 0 10px #00F5FF,
-                 0 0 20px #00F5FF;
+    text-shadow: 0 0 5px var(--primary),
+                 0 0 10px var(--primary),
+                 0 0 20px var(--primary);
 }
 
 .nav-links {
@@ -109,7 +119,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #00F5FF;
+    color: var(--primary);
 }
 .hero-content {
     display: flex;
@@ -152,7 +162,7 @@ body {
 }
 
 .password-checker h2 {
-    color: #00F5FF;
+    color: var(--primary);
     font-size: 40px;
     margin-bottom: 20px;
 }
@@ -167,7 +177,7 @@ body {
     max-width: 90%;
     padding: 15px;
     font-size: 18px;
-    border: 2px solid #00F5FF;
+    border: 2px solid var(--primary);
     border-radius: 8px;
     background: #10182b;
     color: white;
@@ -177,7 +187,7 @@ body {
 .password-checker button {
     margin-top: 20px;
     padding: 15px 35px;
-    background: linear-gradient(135deg, #00F5FF, #007BFF);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border: none;
     border-radius: 50px;
@@ -213,7 +223,7 @@ body {
 }
 
 .features h2 {
-    color: #00F5FF;
+    color: var(--primary);
     font-size: 42px;
     margin-bottom: 50px;
 }
@@ -240,7 +250,7 @@ body {
 }
 
 .card h3 {
-    color: #00F5FF;
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
@@ -251,7 +261,7 @@ body {
 
 .card:hover {
     transform: translateY(-12px) scale(1.03);
-    border-color: #00F5FF;
+    border-color: var(--primary);
     box-shadow:
         0 0 20px rgba(0,245,255,0.5),
         0 0 40px rgba(0,245,255,0.25);
@@ -288,7 +298,7 @@ body {
 }
 
 .stats h2 {
-    color: #00F5FF;
+    color: var(--primary);
     font-size: 42px;
     margin-bottom: 50px;
 }
@@ -304,13 +314,13 @@ body {
     width: 250px;
     padding: 30px;
     background: #10182b;
-    border: 2px solid #00F5FF;
+    border: 2px solid var(--primary);
     border-radius: 15px;
     transition: 0.3s;
 }
 
 .stat-box h3 {
-    color: #00F5FF;
+    color: var(--primary);
     font-size: 40px;
     margin-bottom: 15px;
 }
@@ -322,7 +332,7 @@ body {
 
 .stat-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 20px #00F5FF;
+    box-shadow: 0 0 20px var(--primary);
 }
 
 /* ============================
@@ -410,8 +420,8 @@ body {
     left: 0;
     width: 0%;
     height: 5px;
-    background: #00F5FF;
-    box-shadow: 0 0 15px #00F5FF;
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary);
     z-index: 9999;
     transition: width 0.1s;
 }
@@ -468,8 +478,8 @@ body {
 
 .hero-badges span {
     background: rgba(0, 245, 255, 0.1);
-    border: 1px solid #00F5FF;
-    color: #00F5FF;
+    border: 1px solid var(--primary);
+    color: var(--primary);
     padding: 10px 18px;
     border-radius: 30px;
     font-size: 15px;
@@ -479,7 +489,7 @@ body {
 }
 
 .hero-badges span:hover {
-    background: #00F5FF;
+    background: var(--primary);
     color: #050816;
     transform: translateY(-4px);
     box-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
@@ -494,7 +504,7 @@ body {
 }
 
 .ai-assistant h2 {
-    color: #00F5FF;
+    color: var(--primary);
     font-size: 42px;
     margin-bottom: 20px;
 }
@@ -509,7 +519,7 @@ body {
     width: 70%;
     max-width: 600px;
     padding: 15px;
-    border: 2px solid #00F5FF;
+    border: 2px solid var(--primary);
     border-radius: 50px;
     background: #10182b;
     color: white;
@@ -524,7 +534,7 @@ body {
 .ai-assistant button {
     margin-top: 20px;
     padding: 15px 35px;
-    background: linear-gradient(135deg, #00F5FF, #007BFF);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border: none;
     border-radius: 50px;
@@ -543,7 +553,7 @@ body {
 
 .ai-assistant h3 {
     margin-top: 30px;
-    color: #00F5FF;
+    color: var(--primary);
     min-height: 40px;
 }
 /* ============================
@@ -552,14 +562,14 @@ body {
 
 .footer {
     background: #08111f;
-    border-top: 2px solid #00F5FF;
+    border-top: 2px solid var(--primary);
     text-align: center;
     padding: 50px 20px;
     margin-top: 80px;
 }
 
 .footer h2 {
-    color: #00F5FF;
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
@@ -571,7 +581,7 @@ body {
 
 .footer p:last-child {
     margin-top: 20px;
-    color: #00F5FF;
+    color: var(--primary);
     font-weight: bold;
 }
 /* ============================
@@ -589,9 +599,9 @@ body {
     width: 55px;
     height: 55px;
     background: rgba(0, 245, 255, 0.1);
-    border: 2px solid #00F5FF;
+    border: 2px solid var(--primary);
     border-radius: 50%;
-    color: #00F5FF;
+    color: var(--primary);
     text-decoration: none;
     font-size: 28px;
 
@@ -603,7 +613,7 @@ body {
 }
 
 .social-icons a:hover {
-    background: #00F5FF;
+    background: var(--primary);
     color: #050816;
     transform: translateY(-6px) scale(1.1);
     box-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
@@ -623,7 +633,7 @@ body.light-mode .navbar {
 }
 
 body.light-mode .logo {
-    color: #007BFF;
+    color: var(--secondary);
 }
 
 body.light-mode .nav-links a {
@@ -758,7 +768,7 @@ body.light-mode .footer {
     height: 55px;
     border: none;
     border-radius: 50%;
-    background: linear-gradient(135deg, #00e5ff, #007bff);
+    background: linear-gradient(135deg, #00e5ff, var(--secondary));
     color: white;
     font-size: 24px;
     cursor: pointer;
@@ -825,7 +835,7 @@ body.light-mode .footer {
 }
 
 .popup-content h2 {
-    color: #00F5FF;
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
@@ -843,7 +853,7 @@ body.light-mode .footer {
     float: right;
     font-size: 30px;
     cursor: pointer;
-    color: #00F5FF;
+    color: var(--primary);
     transition: 0.3s;
 }
 
@@ -872,7 +882,7 @@ body.light-mode .footer {
     padding: 14px;
     margin-top: 20px;
     border-radius: 10px;
-    border: 1px solid #00F5FF;
+    border: 1px solid var(--primary);
     background: #111827;
     color: white;
     font-size: 16px;
@@ -880,7 +890,7 @@ body.light-mode .footer {
 }
 
 .popup-content input:focus {
-    box-shadow: 0 0 15px rgba(0,245,255,.5);
+    box-shadow: 0 0 15px var(--glow);
 }
 
 .popup-content button {
@@ -941,14 +951,14 @@ body.light-mode .footer {
     border:none;
     border-radius:10px;
     cursor:pointer;
-    background:#00F5FF;
+    background:var(--primary);
     color:#050816;
     font-size:18px;
 }
 #securityScore{
     margin-top:15px;
     font-size:20px;
-    color:#00F5FF;
+    color:var(--primary);
     text-align:center;
     font-weight:bold;
 }
@@ -993,7 +1003,7 @@ text-align:center;
     border-radius:10px;
     background:#111827;
     color:white;
-    border:1px solid #00F5FF;
+    border:1px solid var(--primary);
 }
 
 #lessonBox{
@@ -1030,7 +1040,7 @@ min-height:180px;
 .feature-link{
     display:inline-block;
     margin-top:20px;
-    color:#00F5FF;
+    color:var(--primary);
     font-weight:bold;
     transition:0.3s ease;
 }
@@ -1077,7 +1087,7 @@ max-width:320px;
 
 .status-panel h3{
 
-color:#00F5FF;
+color:var(--primary);
 
 margin-bottom:15px;
 
@@ -1123,7 +1133,7 @@ right:0;
 
 background:#111827;
 
-border:1px solid #00F5FF;
+border:1px solid var(--primary);
 
 border-top:none;
 
@@ -1153,7 +1163,7 @@ transition:.3s;
 
 .suggestion:hover{
 
-background:#00F5FF;
+background:var(--primary);
 
 color:#000;
 
@@ -1168,7 +1178,7 @@ Typing Animation
 
     display: inline-block;
 
-    color: #00F5FF;
+    color: var(--primary);
 
     font-style: italic;
 
@@ -1244,170 +1254,7 @@ margin-top:20px;
 line-height:1.8;
 
 }
-/* ==========================
-Website Safety Checker
-========================== */
 
-const websiteURL = document.getElementById("websiteURL");
-const scanWebsite = document.getElementById("scanWebsite");
-const scanResult = document.getElementById("scanResult");
-
-if (scanWebsite) {
-
-    scanWebsite.addEventListener("click", function () {
-
-        const url = websiteURL.value.trim().toLowerCase();
-
-        if (url === "") {
-
-            scanResult.innerHTML =
-            "⚠ Please enter a website URL.";
-
-            return;
-
-        }
-
-        let score = 0;
-
-        let reasons = [];
-
-        // HTTPS Check
-        if (!url.startsWith("https://")) {
-
-            score += 25;
-
-            reasons.push("❌ Website is NOT using HTTPS.");
-
-        } else {
-
-            reasons.push("✔ HTTPS Enabled");
-
-        }
-
-        // Suspicious Words
-        const suspiciousWords = [
-
-            "login",
-            "verify",
-            "update",
-            "secure",
-            "bank",
-            "paypal",
-            "gift",
-            "free",
-            "bonus",
-            "claim",
-            "password"
-
-        ];
-
-        suspiciousWords.forEach(word => {
-
-            if (url.includes(word)) {
-
-                score += 8;
-
-                reasons.push("⚠ Suspicious keyword: " + word);
-
-            }
-
-        });
-
-        // Too many hyphens
-
-        const hyphenCount = (url.match(/-/g) || []).length;
-
-        if (hyphenCount >= 3) {
-
-            score += 15;
-
-            reasons.push("⚠ Too many hyphens.");
-
-        }
-
-        // Long URL
-
-        if (url.length > 60) {
-
-            score += 10;
-
-            reasons.push("⚠ Very long URL.");
-
-        }
-
-        // Fake numbers replacing letters
-
-        if (
-
-            url.includes("paypa1") ||
-
-            url.includes("g00gle") ||
-
-            url.includes("micr0soft")
-
-        ) {
-
-            score += 25;
-
-            reasons.push("⚠ Fake domain detected.");
-
-        }
-
-        // Final Result
-
-        if (score <= 20) {
-
-            scanResult.innerHTML =
-
-            "<h3 style='color:lime;'>🟢 SAFE WEBSITE</h3>" +
-
-            reasons.join("<br>") +
-
-            "<br><br><strong>Risk Score:</strong> " +
-
-            score +
-
-            "%";
-
-        }
-
-        else if (score <= 50) {
-
-            scanResult.innerHTML =
-
-            "<h3 style='color:orange;'>🟡 USE CAUTION</h3>" +
-
-            reasons.join("<br>") +
-
-            "<br><br><strong>Risk Score:</strong> " +
-
-            score +
-
-            "%";
-
-        }
-
-        else {
-
-            scanResult.innerHTML =
-
-            "<h3 style='color:red;'>🔴 SUSPICIOUS WEBSITE</h3>" +
-
-            reasons.join("<br>") +
-
-            "<br><br><strong>Risk Score:</strong> " +
-
-            score +
-
-            "%" +
-
-            "<br><br><strong>Recommendation:</strong><br>Do NOT enter passwords or personal information.";
-
-        }
-
-    });
-
-}
 /* ==========================
 AI Information Card
 ========================== */
@@ -1422,7 +1269,7 @@ padding:20px;
 
 background:rgba(15,23,42,0.95);
 
-border:2px solid #00F5FF;
+border:2px solid var(--primary);
 
 border-radius:15px;
 
@@ -1436,7 +1283,7 @@ animation:fadeIn .4s ease;
 
 .info-card h3{
 
-color:#00F5FF;
+color:var(--primary);
 
 margin-bottom:15px;
 
@@ -1474,7 +1321,7 @@ transition:.3s;
 
 transform:scale(1.08);
 
-box-shadow:0 0 15px #00F5FF;
+box-shadow:0 0 15px var(--primary);
 
 }
 /* ==========================
@@ -1507,11 +1354,11 @@ font-size:24px;
 
 cursor:pointer;
 
-background:#00F5FF;
+background:var(--primary);
 
 color:#050816;
 
-box-shadow:0 0 20px rgba(0,245,255,.5);
+box-shadow:0 0 20px var(--glow);
 
 transition:.3s;
 
@@ -1537,7 +1384,7 @@ width:220px;
 
 background:#111827;
 
-border:2px solid #00F5FF;
+border:2px solid var(--primary);
 
 border-radius:12px;
 
@@ -1579,7 +1426,7 @@ transition:.3s;
 
 .theme-option:hover{
 
-background:#00F5FF;
+background:var(--primary);
 
 color:#000;
 
@@ -1587,7 +1434,7 @@ color:#000;
 
 .theme-option:hover{
 
-background:#00F5FF;
+background:var(--primary);
 
 color:black;
 
@@ -1595,9 +1442,23 @@ color:black;
 
 /* Themes */
 
+.theme-blue{
+
+--primary:#00F5FF;
+
+--secondary:#007BFF;
+
+--glow:rgba(0,245,255,.5);
+
+}
+
 .theme-green{
 
 --primary:#00ff66;
+
+--secondary:#00cc55;
+
+--glow:rgba(0,255,102,.5);
 
 }
 
@@ -1605,9 +1466,8 @@ color:black;
 
 --primary:#b400ff;
 
-}
+--secondary:#7a00ff;
 
-.theme-blue{
+--glow:rgba(180,0,255,.5);
 
---primary:#00F5FF;
 }

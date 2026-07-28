@@ -1223,3 +1223,167 @@ if (educationBadge) {
     });
 
 }
+/* ==========================
+Website Safety Checker
+========================== */
+
+const websiteURL = document.getElementById("websiteURL");
+const scanWebsite = document.getElementById("scanWebsite");
+const scanResult = document.getElementById("scanResult");
+
+if (scanWebsite) {
+
+    scanWebsite.addEventListener("click", function () {
+
+        const url = websiteURL.value.trim().toLowerCase();
+
+        if (url === "") {
+
+            scanResult.innerHTML =
+            "⚠ Please enter a website URL.";
+
+            return;
+
+        }
+
+        let score = 0;
+
+        let reasons = [];
+
+        // HTTPS Check
+        if (!url.startsWith("https://")) {
+
+            score += 25;
+
+            reasons.push("❌ Website is NOT using HTTPS.");
+
+        } else {
+
+            reasons.push("✔ HTTPS Enabled");
+
+        }
+
+        // Suspicious Words
+        const suspiciousWords = [
+
+            "login",
+            "verify",
+            "update",
+            "secure",
+            "bank",
+            "paypal",
+            "gift",
+            "free",
+            "bonus",
+            "claim",
+            "password"
+
+        ];
+
+        suspiciousWords.forEach(word => {
+
+            if (url.includes(word)) {
+
+                score += 8;
+
+                reasons.push("⚠ Suspicious keyword: " + word);
+
+            }
+
+        });
+
+        // Too many hyphens
+
+        const hyphenCount = (url.match(/-/g) || []).length;
+
+        if (hyphenCount >= 3) {
+
+            score += 15;
+
+            reasons.push("⚠ Too many hyphens.");
+
+        }
+
+        // Long URL
+
+        if (url.length > 60) {
+
+            score += 10;
+
+            reasons.push("⚠ Very long URL.");
+
+        }
+
+        // Fake numbers replacing letters
+
+        if (
+
+            url.includes("paypa1") ||
+
+            url.includes("g00gle") ||
+
+            url.includes("micr0soft")
+
+        ) {
+
+            score += 25;
+
+            reasons.push("⚠ Fake domain detected.");
+
+        }
+
+        // Final Result
+
+        if (score <= 20) {
+
+            scanResult.innerHTML =
+
+            "<h3 style='color:lime;'>🟢 SAFE WEBSITE</h3>" +
+
+            reasons.join("<br>") +
+
+            "<br><br><strong>Risk Score:</strong> " +
+
+            score +
+
+            "%";
+
+        }
+
+        else if (score <= 50) {
+
+            scanResult.innerHTML =
+
+            "<h3 style='color:orange;'>🟡 USE CAUTION</h3>" +
+
+            reasons.join("<br>") +
+
+            "<br><br><strong>Risk Score:</strong> " +
+
+            score +
+
+            "%";
+
+        }
+
+        else {
+
+            scanResult.innerHTML =
+
+            "<h3 style='color:red;'>🔴 SUSPICIOUS WEBSITE</h3>" +
+
+            reasons.join("<br>") +
+
+            "<br><br><strong>Risk Score:</strong> " +
+
+            score +
+
+            "%" +
+
+            "<br><br><strong>Recommendation:</strong><br>Do NOT enter passwords or personal information.";
+
+        }
+
+    });
+
+}
