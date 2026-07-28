@@ -31,11 +31,21 @@ export default async function handler(req, res) {
       }
     );
 
-    const data = await response.json();
+   const data = await response.json();
 
-    const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Sorry, I couldn't generate a response.";
+console.log("Gemini Response:", JSON.stringify(data, null, 2));
+
+if (!response.ok) {
+    return res.status(response.status).json({
+        reply: data.error?.message || "Gemini API Error"
+    });
+}
+
+const reply =
+    data.candidates?.[0]?.content?.parts?.[0]?.text ||
+    "No response generated.";
+
+res.status(200).json({ reply });
 
     res.status(200).json({
       reply
