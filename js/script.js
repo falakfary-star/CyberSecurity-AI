@@ -1657,3 +1657,207 @@ modulePopup.style.display="none";
 }
 
 });
+// ============================
+// Country Threat Intelligence
+// ============================
+
+const countrySelect = document.getElementById("countrySelect");
+const countryInfo = document.getElementById("countryInfo");
+
+const countryDatabase = {
+
+pakistan:{
+
+flag:"🇵🇰",
+
+name:"Pakistan",
+
+level:"🟠 Medium",
+
+threats:"Phishing, Banking Trojans, Social Engineering",
+
+tips:"Enable Two-Factor Authentication, avoid suspicious links, and keep Windows updated."
+
+},
+
+usa:{
+
+flag:"🇺🇸",
+
+name:"United States",
+
+level:"🔴 High",
+
+threats:"Ransomware, Data Breaches, Phishing",
+
+tips:"Use MFA, keep software updated, and monitor suspicious emails."
+
+},
+
+uk:{
+
+flag:"🇬🇧",
+
+name:"United Kingdom",
+
+level:"🟡 Medium",
+
+threats:"Email Scams, Identity Theft",
+
+tips:"Use strong passwords and enable email protection."
+
+},
+
+india:{
+
+flag:"🇮🇳",
+
+name:"India",
+
+level:"🟠 Medium",
+
+threats:"UPI Fraud, Phishing, Fake Apps",
+
+tips:"Download apps only from official stores."
+
+},
+
+china:{
+
+flag:"🇨🇳",
+
+name:"China",
+
+level:"🔴 High",
+
+threats:"Malware, Spyware, Network Attacks",
+
+tips:"Keep security software updated."
+
+},
+
+germany:{
+
+flag:"🇩🇪",
+
+name:"Germany",
+
+level:"🟡 Medium",
+
+threats:"Business Email Compromise",
+
+tips:"Verify all financial transactions."
+
+},
+
+japan:{
+
+flag:"🇯🇵",
+
+name:"Japan",
+
+level:"🟢 Low",
+
+threats:"Phishing",
+
+tips:"Enable automatic security updates."
+
+},
+
+uae:{
+
+flag:"🇦🇪",
+
+name:"United Arab Emirates",
+
+level:"🟡 Medium",
+
+threats:"Financial Fraud",
+
+tips:"Never share OTP codes."
+
+},
+
+canada:{
+
+flag:"🇨🇦",
+
+name:"Canada",
+
+level:"🟢 Low",
+
+threats:"Identity Theft",
+
+tips:"Use password managers."
+
+},
+
+australia:{
+
+flag:"🇦🇺",
+
+name:"Australia",
+
+level:"🟡 Medium",
+
+threats:"Scam Calls, Phishing",
+
+tips:"Report suspicious websites immediately."
+
+}
+
+};
+
+countrySelect.addEventListener("change",function(){
+
+const data = countryDatabase[this.value];
+
+if(!data){
+
+countryInfo.innerHTML="<h3>Select a country to view cyber threat information.</h3>";
+
+return;
+
+}
+
+countryInfo.innerHTML=`
+
+<h3>${data.flag} ${data.name}</h3>
+
+<p><strong>Threat Level:</strong> ${data.level}</p>
+
+<p><strong>Common Threats:</strong><br>${data.threats}</p>
+
+<p><strong>Cyber Safety Tips:</strong><br>${data.tips}</p>
+
+<p><strong>Source:</strong> Educational CyberShield Intelligence Database</p>
+
+`;
+
+});
+// ============================
+// Contact Button
+// ============================
+
+const contactBtn = document.getElementById("contactBtn");
+
+if (contactBtn) {
+
+    contactBtn.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const openMail = confirm(
+            "📧 Open Gmail to contact CyberShield AI?"
+        );
+
+        if (openMail) {
+
+            window.location.href =
+            "mailto:falakfary@gmail.com?subject=CyberShield AI Inquiry&body=Hello Falak,%0A%0AI would like to contact you regarding CyberShield AI.";
+
+        }
+
+    });
+
+}
