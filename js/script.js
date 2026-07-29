@@ -1384,3 +1384,276 @@ if (scanWebsite) {
     });
 
 }
+// ============================
+// Live Security Dashboard
+// ============================
+
+const dashboardThreat = document.getElementById("dashboardThreat");
+const dashboardTime = document.getElementById("dashboardTime");
+
+const threatLevels = [
+
+    "🟢 Low",
+    "🟡 Medium",
+    "🟠 Elevated",
+    "🔴 High"
+
+];
+
+function updateDashboard(){
+
+    // Random Threat Level
+
+    const randomThreat =
+        threatLevels[Math.floor(Math.random()*threatLevels.length)];
+
+    dashboardThreat.innerHTML = randomThreat;
+
+    // Update Time
+
+    const now = new Date();
+
+    dashboardTime.innerHTML =
+        now.toLocaleTimeString();
+
+}
+
+updateDashboard();
+
+setInterval(updateDashboard,5000);
+// ============================
+// Live Network Monitor
+// ============================
+
+const firewallStatus = document.getElementById("firewallStatus");
+const scannerStatus = document.getElementById("scannerStatus");
+const networkStatus = document.getElementById("networkStatus");
+const malwareStatus = document.getElementById("malwareStatus");
+const vpnStatus = document.getElementById("vpnStatus");
+const idsStatus = document.getElementById("idsStatus");
+
+const statusOptions = [
+
+"🟢 Active",
+"🟢 Running",
+"🟡 Monitoring",
+"🟢 Protected",
+"🟢 Online"
+
+];
+
+function randomStatus(){
+
+return statusOptions[Math.floor(Math.random()*statusOptions.length)];
+
+}
+
+function updateNetwork(){
+
+firewallStatus.innerHTML = randomStatus();
+
+scannerStatus.innerHTML = randomStatus();
+
+networkStatus.innerHTML = randomStatus();
+
+malwareStatus.innerHTML = randomStatus();
+
+vpnStatus.innerHTML = randomStatus();
+
+idsStatus.innerHTML = randomStatus();
+
+}
+
+updateNetwork();
+
+setInterval(updateNetwork,4000);
+// ============================
+// Network Module Information
+// ============================
+
+const modulePopup = document.getElementById("modulePopup");
+const moduleTitle = document.getElementById("moduleTitle");
+const moduleBody = document.getElementById("moduleBody");
+const closeModulePopup = document.getElementById("closeModulePopup");
+
+const moduleInfo = {
+
+firewall:{
+
+title:"🛡 Firewall Protection",
+
+body:`
+
+<p><strong>Status:</strong> 🟢 Active</p>
+
+<p>The CyberShield Firewall monitors incoming and outgoing network traffic and blocks suspicious connections before they reach your device.</p>
+
+<ul>
+
+<li>✔ Incoming Traffic Filtered</li>
+
+<li>✔ Outgoing Connections Monitored</li>
+
+<li>✔ Unauthorized Access Blocked</li>
+
+<li>✔ Protection Level: 98%</li>
+
+</ul>
+
+`
+
+},
+
+scanner:{
+
+title:"🤖 AI Security Scanner",
+
+body:`
+
+<p><strong>Status:</strong> Running</p>
+
+<p>The AI Scanner analyzes URLs, passwords, and suspicious activities using intelligent rule-based detection.</p>
+
+<ul>
+
+<li>✔ URLs Scanned Today: 10,253</li>
+
+<li>✔ Password Analysis Enabled</li>
+
+<li>✔ Threat Pattern Detection Active</li>
+
+</ul>
+
+`
+
+},
+
+network:{
+
+title:"🌐 Network Monitor",
+
+body:`
+
+<p><strong>Status:</strong> Monitoring</p>
+
+<p>CyberShield continuously watches network activity for suspicious traffic and unusual behavior.</p>
+
+<ul>
+
+<li>✔ Live Packet Monitoring</li>
+
+<li>✔ Suspicious Traffic Detection</li>
+
+<li>✔ Real-Time Alerts</li>
+
+</ul>
+
+`
+
+},
+
+malware:{
+
+title:"☠ Malware Protection",
+
+body:`
+
+<p><strong>Status:</strong> Protected</p>
+
+<p>Malware Protection scans for known malicious software before it can affect your system.</p>
+
+<ul>
+
+<li>✔ Virus Signatures Updated</li>
+
+<li>✔ Ransomware Protection Enabled</li>
+
+<li>✔ Threats Blocked Today: 47</li>
+
+</ul>
+
+`
+
+},
+
+vpn:{
+
+title:"🔒 VPN Shield",
+
+body:`
+
+<p><strong>Status:</strong> Enabled</p>
+
+<p>VPN Shield encrypts internet traffic and protects user privacy on public and private networks.</p>
+
+<ul>
+
+<li>✔ Encrypted Connection</li>
+
+<li>✔ IP Address Hidden</li>
+
+<li>✔ Secure Browsing</li>
+
+</ul>
+
+`
+
+},
+
+ids:{
+
+title:"🚨 Intrusion Detection",
+
+body:`
+
+<p><strong>Status:</strong> Online</p>
+
+<p>The Intrusion Detection System monitors suspicious activities and detects unauthorized access attempts.</p>
+
+<ul>
+
+<li>✔ Login Monitoring</li>
+
+<li>✔ Attack Detection</li>
+
+<li>✔ Security Event Logging</li>
+
+</ul>
+
+`
+
+}
+
+};
+
+document.querySelectorAll(".network-item.clickable").forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+const key=item.dataset.module;
+
+moduleTitle.innerHTML=moduleInfo[key].title;
+
+moduleBody.innerHTML=moduleInfo[key].body;
+
+modulePopup.style.display="flex";
+
+});
+
+});
+
+closeModulePopup.addEventListener("click",()=>{
+
+modulePopup.style.display="none";
+
+});
+
+window.addEventListener("click",(e)=>{
+
+if(e.target===modulePopup){
+
+modulePopup.style.display="none";
+
+}
+
+});

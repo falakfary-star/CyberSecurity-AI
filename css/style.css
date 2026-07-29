@@ -1544,3 +1544,192 @@ border-radius:15px;
 background:#000;
 
 }
+/* ==========================
+   Security Dashboard
+========================== */
+
+.security-dashboard{
+
+padding:100px 20px;
+
+text-align:center;
+
+}
+
+.security-dashboard h2{
+
+font-size:42px;
+
+color:var(--primary);
+
+margin-bottom:20px;
+
+}
+
+.security-dashboard p{
+
+color:#d6d6d6;
+
+margin-bottom:40px;
+
+font-size:18px;
+
+}
+
+.dashboard-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.dashboard-card{
+
+background:rgba(16,24,43,.75);
+
+border:2px solid var(--primary);
+
+border-radius:20px;
+
+padding:30px;
+
+transition:.35s;
+
+box-shadow:0 0 20px rgba(0,245,255,.2);
+
+backdrop-filter:blur(12px);
+
+}
+
+.dashboard-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 35px rgba(0,245,255,.45);
+
+}
+
+.dashboard-card h3{
+
+color:var(--primary);
+
+margin-bottom:18px;
+
+font-size:24px;
+
+}
+
+.dashboard-card h1{
+
+font-size:42px;
+
+color:white;
+
+}
+
+.dashboard-card p{
+
+font-size:22px;
+
+font-weight:bold;
+
+margin:0;
+
+color:white;
+
+}
+/* ==========================
+Network Monitor
+========================== */
+
+.network-monitor{
+
+padding:100px 20px;
+
+text-align:center;
+
+}
+
+.network-monitor h2{
+
+font-size:42px;
+
+color:var(--primary);
+
+margin-bottom:20px;
+
+}
+
+.network-monitor p{
+
+margin-bottom:35px;
+
+color:#d6d6d6;
+
+}
+
+.network-panel{
+
+background:rgba(16,24,43,.8);
+
+border:2px solid var(--primary);
+
+border-radius:20px;
+
+padding:30px;
+
+box-shadow:0 0 25px rgba(0,245,255,.25);
+
+}
+
+.network-item{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:18px 0;
+
+font-size:20px;
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.network-item:last-child{
+
+border-bottom:none;
+
+}
+
+.network-item span:last-child{
+
+font-weight:bold;
+
+color:lime;
+
+}
+/* ==========================
+Clickable Network Modules
+========================== */
+
+.network-item.clickable{
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.network-item.clickable:hover{
+
+background:rgba(0,245,255,.08);
+
+padding-left:12px;
+
+border-radius:10px;
+
+}
