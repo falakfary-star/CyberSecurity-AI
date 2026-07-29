@@ -1471,3 +1471,76 @@ color:black;
 --glow:rgba(180,0,255,.5);
 
 }
+/* ==========================
+   Global Threat Map
+========================== */
+
+.threat-map{
+
+padding:100px 20px;
+
+text-align:center;
+
+}
+
+.threat-map h2{
+
+font-size:42px;
+
+color:var(--primary);
+
+margin-bottom:20px;
+
+}
+
+.threat-map p{
+
+color:#d6d6d6;
+
+font-size:18px;
+
+margin-bottom:40px;
+
+line-height:1.8;
+
+}
+
+.map-box{
+
+background:rgba(16,24,43,.75);
+
+border:2px solid var(--primary);
+
+border-radius:20px;
+
+padding:20px;
+
+box-shadow:0 0 25px rgba(0,245,255,.25);
+
+overflow:hidden;
+
+transition:.4s;
+
+}
+
+.map-box:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 40px rgba(0,245,255,.5);
+
+}
+
+.map-box iframe{
+
+width:100%;
+
+height:650px;
+
+border:none;
+
+border-radius:15px;
+
+background:#000;
+
+}
