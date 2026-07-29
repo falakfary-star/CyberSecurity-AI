@@ -1855,3 +1855,30 @@ height:420px;
 }
 
 }
+.mobile-note{
+
+margin-top:20px;
+
+text-align:center;
+
+font-size:16px;
+
+color:#cccccc;
+
+}
+
+.mobile-note a{
+
+color:#00F5FF;
+
+font-weight:bold;
+
+text-decoration:none;
+
+}
+
+.mobile-note a:hover{
+
+text-decoration:underline;
+
+}
