@@ -1,40 +1,5 @@
 console.log("CyberShield AI Loaded Successfully!");
 
-const passwordInput = document.getElementById("passwordInput");
-const checkButton = document.getElementById("checkPassword");
-const result = document.getElementById("passwordResult");
-
-checkButton.addEventListener("click", function () {
-
-    const password = passwordInput.value;
-
-   const hasUpper = /[A-Z]/.test(password);
-const hasLower = /[a-z]/.test(password);
-const hasNumber = /[0-9]/.test(password);
-const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-let score = 0;
-
-if (password.length >= 8) score++;
-if (hasUpper) score++;
-if (hasLower) score++;
-if (hasNumber) score++;
-if (hasSpecial) score++;
-
-if (score <= 2) {
-    result.innerHTML = "🔴 Weak Password";
-    result.style.color = "red";
-}
-else if (score <= 4) {
-    result.innerHTML = "🟡 Medium Password";
-    result.style.color = "orange";
-}
-else {
-    result.innerHTML = "🟢 Strong Password";
-    result.style.color = "lime";
-}
-
-});
 
 const urlInput = document.getElementById("urlInput");
 const checkURLButton = document.getElementById("checkURL");

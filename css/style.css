@@ -152,67 +152,7 @@ body {
     justify-content: space-between;
     gap: 80px;
 }
-/* ============================
-   Password Checker
-   ============================ */
 
-.password-checker {
-    padding: 100px 20px;
-    text-align: center;
-}
-
-.password-checker h2 {
-    color: var(--primary);
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.password-checker p {
-    color: #d6d6d6;
-    margin-bottom: 30px;
-}
-
-.password-checker input {
-    width: 350px;
-    max-width: 90%;
-    padding: 15px;
-    font-size: 18px;
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    background: #10182b;
-    color: white;
-    outline: none;
-}
-
-.password-checker button {
-    margin-top: 20px;
-    padding: 15px 35px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
-}
-
-.password-checker button:hover {
-    transform: translateY(-6px) scale(1.05);
-    background: linear-gradient(135deg, #00D4FF, #005BFF);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.9);
-}
-
-.password-checker button:active {
-    transform: scale(0.96);
-}
-
-#passwordResult {
-    margin-top: 30px;
-    font-size: 28px;
-    font-weight: bold;
-}
 /* ============================
    Features Section
    ============================ */
